@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Models
 {
-    public class Products
+    public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
