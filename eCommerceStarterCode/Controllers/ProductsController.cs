@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/products")]
+    [Route("api/buyer")]
     [ApiController]
-    public class ProductsController : Controller
+    public class ProductsController : ControllerBase
     {
         // GET: ProductsController
         private readonly ApplicationDbContext _context;
@@ -28,72 +28,72 @@ namespace eCommerceStarterCode.Controllers
         }
     }
 
-    // GET: ProductsController/Details/5
-    public ActionResult Details(int id)
-    {
-        return View();
-    }
+    //// GET: ProductsController/Details/5
+    //public ActionResult Details(int id)
+    //{
+    //    return View();
+    //}
 
-    // GET: ProductsController/Create
-    public ActionResult Create()
-    {
-        return View();
-    }
+    //// GET: ProductsController/Create
+    //public ActionResult Create()
+    //{
+    //    return View();
+    //}
 
-    // POST: ProductsController/Create
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Create(IFormCollection collection)
-    {
-        try
-        {
-            return RedirectToAction(nameof(Index));
-        }
-        catch
-        {
-            return View();
-        }
-    }
+    //// POST: ProductsController/Create
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public ActionResult Create(IFormCollection collection)
+    //{
+    //    try
+    //    {
+    //        return RedirectToAction(nameof(Index));
+    //    }
+    //    catch
+    //    {
+    //        return View();
+    //    }
+    //}
 
-    // GET: ProductsController/Edit/5
-    public ActionResult Edit(int id)
-    {
-        return View();
-    }
+    //// GET: ProductsController/Edit/5
+    //public ActionResult Edit(int id)
+    //{
+    //    return View();
+    //}
 
-    // POST: ProductsController/Edit/5
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Edit(int id, IFormCollection collection)
-    {
-        try
-        {
-            return RedirectToAction(nameof(Index));
-        }
-        catch
-        {
-            return View();
-        }
-    }
+    //// POST: ProductsController/Edit/5
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public ActionResult Edit(int id, IFormCollection collection)
+    //{
+    //    try
+    //    {
+    //        return RedirectToAction(nameof(Index));
+    //    }
+    //    catch
+    //    {
+    //        return View();
+    //    }
+    //}
 
-    // GET: ProductsController/Delete/5
-    public ActionResult Delete(int id)
-    {
-        return View();
-    }
+    //// GET: ProductsController/Delete/5
+    //public ActionResult Delete(int id)
+    //{
+    //    return View();
+    //}
 
-    // POST: ProductsController/Delete/5
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Delete(int id, IFormCollection collection)
-    {
-        try
-        {
-            return RedirectToAction(nameof(Index));
-        }
-        catch
-        {
-            return View();
-        }
-    }
+    //// POST: ProductsController/Delete/5
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public ActionResult Delete(int id, IFormCollection collection)
+    //{
+    //    try
+    //    {
+    //        return RedirectToAction(nameof(Index));
+    //    }
+    //    catch
+    //    {
+    //        return View();
+    //    }
+    //}
 }
