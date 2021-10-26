@@ -16,6 +16,6 @@ namespace eCommerceStarterCode.Models
 
         [ForeignKey("Products")]
         public int ProductId { get; set; }
-        public Product Products { get; set; }
+        public Product Product { get; set; }
     }
 }
