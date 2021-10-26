@@ -25,8 +25,13 @@ namespace eCommerceStarterCode.Data
             modelBuilder.ApplyConfiguration(new RolesConfiguration());
             modelBuilder.Entity<Product>()
                 .HasData(
-                    new Product { Id = 1, Name = "Cool Hoodie", Price = 499, Category = "Hoodies", Description = "Our coolest hoodie, ever." }
+                    new Product { Id = 1, Name = "Cool Hoodie", Price = 499, Category = "Hoodies", Description = "Our coolest hoodie, ever." },
+                    new Product { Id = 3, Name = "Bad Hoodie", Price = 15, Category = "Hoodies", Description = "Our baddest hoodie, ever." }
                 );
+            //modelBuilder.Entity<ShoppingCart>()
+            //    .HasData(
+            //        new ShoppingCart { Id = 1, UserId = "1", ProductId = 1, Quantity = 1}
+            //    );
         }
 
     }

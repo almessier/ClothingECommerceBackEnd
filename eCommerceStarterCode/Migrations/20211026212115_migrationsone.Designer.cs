@@ -10,8 +10,8 @@ using eCommerceStarterCode.Data;
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211026204023_migrationsfour")]
-    partial class migrationsfour
+    [Migration("20211026212115_migrationsone")]
+    partial class migrationsone
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "81d9cec7-6a79-4e08-bea2-3721cc3370f5",
-                            ConcurrencyStamp = "2cf97b78-140e-45be-b92c-3ccb5e46f9fe",
+                            Id = "ad718175-7a40-4852-bf6c-d879bff8685a",
+                            ConcurrencyStamp = "c6f14ea0-2223-4e09-a13a-a76bbc1869e7",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "7b2e60ff-dd12-4a29-9e12-e6f2dd6988bc",
-                            ConcurrencyStamp = "13cb160d-a9fb-4bb1-b1b1-4f8733c92130",
+                            Id = "11e7a9c0-a156-4427-8bb6-46fafda55c9c",
+                            ConcurrencyStamp = "9916534f-67d3-48dc-a381-33a173ee8409",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -199,6 +199,14 @@ namespace eCommerceStarterCode.Migrations
                             Description = "Our coolest hoodie, ever.",
                             Name = "Cool Hoodie",
                             Price = 499.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Category = "Hoodies",
+                            Description = "Our baddest hoodie, ever.",
+                            Name = "Bad Hoodie",
+                            Price = 15.0
                         });
                 });
 
