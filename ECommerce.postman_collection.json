@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "4ca4d4b5-3b2d-4eda-84bb-d52fba66d4c0",
+		"name": "ECommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:62321/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:62321/api/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"Name\": \"Cool Pants\",\r\n    \"Description\": \"These are pretty cool.\",\r\n    \"Price\": 299,\r\n    \"Category\": \"Pants\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:62321/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Review",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"rating\" : 5,\r\n    \"content\" : \"This hoodie is amazing\",\r\n    \"ProductId\" : 5\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:62321/api/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shopping Cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:62321/api/shoppingcart/fad5aaa0-b7ef-4b50-89ec-cc634f2efd9f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"shoppingcart",
+						"fad5aaa0-b7ef-4b50-89ec-cc634f2efd9f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products by Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:62321/api/search/category/Hoodies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"search",
+						"category",
+						"Hoodies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:62321/api/search/name/pants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"search",
+						"name",
+						"pants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reviews by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:62321/api/reviews/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"reviews",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shopping Cart by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:62321/api/shoppingcart/fad5aaa0-b7ef-4b50-89ec-cc634f2efd9f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"shoppingcart",
+						"fad5aaa0-b7ef-4b50-89ec-cc634f2efd9f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Shopping Cart",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:62321/api/shoppingcart/product/1/user/fad5aaa0-b7ef-4b50-89ec-cc634f2efd9f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"shoppingcart",
+						"product",
+						"1",
+						"user",
+						"fad5aaa0-b7ef-4b50-89ec-cc634f2efd9f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Shopping Cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserId\" : \"fad5aaa0-b7ef-4b50-89ec-cc634f2efd9f\",\r\n    \"ProductId\" : 1,\r\n    \"Quantity\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:62321/api/shoppingcart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"shoppingcart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\" : \"Alex\",\r\n    \"LastName\" : \"Messier\",\r\n    \"UserName\" : \"AlexM\",\r\n    \"Email\" : \"alexander.j.messier@gmail.com\",\r\n    \"Password\" : \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:62321/api/authentication",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62321",
+					"path": [
+						"api",
+						"authentication"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "swyfdgdfghdgfhd4353",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
