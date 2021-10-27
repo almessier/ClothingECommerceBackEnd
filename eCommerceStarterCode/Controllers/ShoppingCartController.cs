@@ -28,13 +28,17 @@ namespace eCommerceStarterCode.Controllers
             return Ok(products);
         }
 
-        [HttpDelete("{productId}")]
-        public IActionResult DeleteProduct(int productId)
+        [HttpDelete("product/{productId}/user/{userId}")]
+        public IActionResult DeleteProduct(int productId, string userId)
         {
-            var product = _context.ShoppingCarts.Include(sc => sc.User).Include(sc => sc.Product).Where(sc => sc.Product.Id == productId);
+            var product = _context.ShoppingCarts
+                //.Include(sc => sc.User)
+                //.Include(sc => sc.Product)
+                .Where(sc => (sc.Product.Id == productId && sc.User.Id == userId))
+                .SingleOrDefault();
             _context.Remove(product);
             _context.SaveChanges();
-            return StatusCode(200);
+            return StatusCode(204);
         }
 
         [HttpPost]

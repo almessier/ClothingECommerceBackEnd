@@ -3,6 +3,7 @@ using eCommerceStarterCode.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,11 @@ namespace eCommerceStarterCode.Controllers
         {
             _context = context;
         }
-        [HttpGet]
-        public IActionResult GetAllReviews()
+        [HttpGet("{productId}")]
+        public IActionResult GetReviewsbyId(int productId)
         {
             //Gets all reviews from the database
-            var reviews = _context.Reviews.ToList();
+            var reviews = _context.Reviews.Include(r => r.Product).Where(r => r.Product.Id == productId);
             return Ok(reviews);
         }
         [HttpPost]
