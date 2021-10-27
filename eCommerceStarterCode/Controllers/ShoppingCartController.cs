@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using eCommerceStarterCode.Data;
 using eCommerceStarterCode.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceStarterCode.Controllers
 {
@@ -20,13 +21,28 @@ namespace eCommerceStarterCode.Controllers
         {
             _context = context;
         }
-        [HttpGet("shoppingCart")]
-
-        public IActionResult GetShoppingCart()
+        [HttpGet("{userId}")]
+        public IActionResult GetShoppingCart(string userId)
         {
+            var products = _context.ShoppingCarts.Include(sc => sc.User).Include(sc => sc.Product).Where(sc => sc.User.Id == userId);
+            return Ok(products);
+        }
 
-            var cart = _context.ShoppingCarts.ToList();
-            return Ok(cart);
+        [HttpDelete("{productId}")]
+        public IActionResult DeleteProduct(int productId)
+        {
+            var product = _context.ShoppingCarts.Include(sc => sc.User).Include(sc => sc.Product).Where(sc => sc.Product.Id == productId);
+            _context.Remove(product);
+            _context.SaveChanges();
+            return StatusCode(200);
+        }
+
+        [HttpPost]
+        public IActionResult PostShoppingCart([FromBody] ShoppingCart value)
+        {
+            _context.ShoppingCarts.Add(value);
+            _context.SaveChanges();
+            return Ok(value);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace eCommerceStarterCode.Data
             public DbSet<Product> Products { get; set; }
             public DbSet<Review> Reviews { get; set; }
             public DbSet<ShoppingCart> ShoppingCarts { get; set; }
-            public DbSet<User> Users { get; set; }
+            public override DbSet<User> Users { get; set; }
         
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,6 +28,9 @@ namespace eCommerceStarterCode.Data
                     new Product { Id = 1, Name = "Cool Hoodie", Price = 499, Category = "Hoodies", Description = "Our coolest hoodie, ever." },
                     new Product { Id = 3, Name = "Bad Hoodie", Price = 15, Category = "Hoodies", Description = "Our baddest hoodie, ever." }
                 );
+            modelBuilder.Entity<ShoppingCart>().HasKey( u => new { u.UserId, u.ProductId });
+            
+            
             //modelBuilder.Entity<ShoppingCart>()
             //    .HasData(
             //        new ShoppingCart { Id = 1, UserId = "1", ProductId = 1, Quantity = 1}
