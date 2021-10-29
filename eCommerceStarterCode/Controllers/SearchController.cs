@@ -24,7 +24,7 @@ namespace eCommerceStarterCode.Controllers
         public IActionResult SearchByName(string searchTerm)
         {
             //Gets all searches from the database
-            var products = _context.Products.Where(p => p.Name.Contains(searchTerm));
+            var products = _context.Products.Where(p => p.Name.Contains(searchTerm)).ToList();
             return Ok(products);
         }
         [HttpGet("category/{category}")]

@@ -44,7 +44,20 @@ namespace eCommerceStarterCode.Controllers
         [HttpPost]
         public IActionResult PostShoppingCart([FromBody] ShoppingCart value)
         {
-            _context.ShoppingCarts.Add(value);
+            var product = _context.ShoppingCarts
+            //.Include(sc => sc.User)
+            //.Include(sc => sc.Product)
+            .Where(sc => sc.Product.Id == value.ProductId && sc.User.Id == value.UserId)
+            .SingleOrDefault();
+            if (product != null)
+            {
+                 product.Quantity += value.Quantity;
+                _context.ShoppingCarts.Update(product);
+            }
+            else
+            {
+                _context.ShoppingCarts.Add(value);
+            }
             _context.SaveChanges();
             return Ok(value);
         }
