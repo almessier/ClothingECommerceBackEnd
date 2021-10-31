@@ -49,7 +49,8 @@ namespace eCommerceStarterCode.Controllers
             int numberOfRatings = reviews.ToList().Count();
             decimal ratings = numberOfRatings;
             decimal average = total / numberOfRatings;
-            return Ok(average);
+            decimal roundedAverage = Math.Round(average, 2);
+            return Ok(roundedAverage);
         }
         [HttpPost]
         public IActionResult PostReview([FromBody] Review value)
