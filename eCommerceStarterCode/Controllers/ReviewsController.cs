@@ -21,12 +21,35 @@ namespace eCommerceStarterCode.Controllers
         {
             _context = context;
         }
+        [HttpGet]
+        public IActionResult GetReviews()
+        {
+            //Gets all reviews from the database
+            var reviews = _context.Reviews.Include(r => r.Product);
+            return Ok(reviews);
+        }
         [HttpGet("{productId}")]
         public IActionResult GetReviewsbyId(int productId)
         {
-            //Gets all reviews from the database
+            //Get reviews by Id from the database
             var reviews = _context.Reviews.Include(r => r.Product).Where(r => r.Product.Id == productId);
             return Ok(reviews);
+        }
+        [HttpGet("average/{productId}")]
+        public IActionResult GetAverageReviewsbyId(int productId)
+        {
+            //Get average
+            var reviews = _context.Reviews.Include(r => r.Product).Where(r => r.Product.Id == productId);
+            decimal total = 0;
+            foreach (var review in reviews)
+            {
+                decimal rating = review.Rating;
+                total += rating;
+            }
+            int numberOfRatings = reviews.ToList().Count();
+            decimal ratings = numberOfRatings;
+            decimal average = total / numberOfRatings;
+            return Ok(average);
         }
         [HttpPost]
         public IActionResult PostReview([FromBody] Review value)
