@@ -48,9 +48,17 @@ namespace eCommerceStarterCode.Controllers
             }
             int numberOfRatings = reviews.ToList().Count();
             decimal ratings = numberOfRatings;
-            decimal average = total / numberOfRatings;
-            decimal roundedAverage = Math.Round(average, 2);
-            return Ok(roundedAverage);
+            if (numberOfRatings == 0)
+            {
+                string noReviews = "This product has no reviews.";
+                return Ok(noReviews);
+            }
+            else
+            {
+                decimal average = total / numberOfRatings;
+                decimal roundedAverage = Math.Round(average, 2);
+                return Ok(roundedAverage);
+            }
         }
         [HttpPost]
         public IActionResult PostReview([FromBody] Review value)
