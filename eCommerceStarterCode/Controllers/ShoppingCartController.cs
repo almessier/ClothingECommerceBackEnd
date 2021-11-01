@@ -45,7 +45,8 @@ namespace eCommerceStarterCode.Controllers
             }
             else
             {
-                return Ok(total);
+                string totalToString = "$" + total;
+                return Ok(totalToString);
             }
         }
 

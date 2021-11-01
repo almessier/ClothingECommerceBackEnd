@@ -33,7 +33,18 @@ namespace eCommerceStarterCode.Controllers
         {
             //Get reviews by Id from the database
             var reviews = _context.Reviews.Include(r => r.Product).Where(r => r.Product.Id == productId);
-            return Ok(reviews);
+            //int numberOfRatings = reviews.ToList().Count();
+            //if (numberOfRatings == 0)
+            //{
+            //    List<string> noReviews = new List<string>();
+            //    noReviews.Add("This product has no reviews.");
+
+            //    return Ok(noReviews);
+            //}
+            //else
+            //{
+                return Ok(reviews);
+            //}
         }
         [HttpGet("average/{productId}")]
         public IActionResult GetAverageReviewsbyId(int productId)
@@ -57,7 +68,8 @@ namespace eCommerceStarterCode.Controllers
             {
                 decimal average = total / numberOfRatings;
                 decimal roundedAverage = Math.Round(average, 2);
-                return Ok(roundedAverage);
+                string final = roundedAverage + "/5";
+                return Ok(final);
             }
         }
         [HttpPost, Authorize]
