@@ -29,6 +29,18 @@ namespace eCommerceStarterCode.Controllers
             return Ok(products);
         }
 
+        [HttpGet("total/{userId}"), Authorize]
+        public IActionResult GetShoppingCartTotal(string userId)
+        {
+            var productPrices = _context.ShoppingCarts.Include(sc => sc.User).Include(sc => sc.Product).Where(sc => sc.User.Id == userId).Select(sc => sc.Product.Price);
+            double total = 0;
+            foreach (double price in productPrices)
+            {
+                total += price;
+            }
+            return Ok(total);
+        }
+
         [HttpDelete("product/{productId}/user/{userId}"), Authorize]
         public IActionResult DeleteProduct(int productId, string userId)
         {
