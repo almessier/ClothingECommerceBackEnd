@@ -38,7 +38,15 @@ namespace eCommerceStarterCode.Controllers
             {
                 total += price;
             }
-            return Ok(total);
+            if (total == 0)
+            {
+                string empty = "Your shopping cart is empty.";
+                return Ok(empty);
+            }
+            else
+            {
+                return Ok(total);
+            }
         }
 
         [HttpDelete("product/{productId}/user/{userId}"), Authorize]
