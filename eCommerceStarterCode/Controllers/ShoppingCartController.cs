@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using eCommerceStarterCode.Data;
 using eCommerceStarterCode.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eCommerceStarterCode.Controllers
 {
@@ -21,14 +22,14 @@ namespace eCommerceStarterCode.Controllers
         {
             _context = context;
         }
-        [HttpGet("{userId}")]
+        [HttpGet("{userId}"), Authorize]
         public IActionResult GetShoppingCart(string userId)
         {
             var products = _context.ShoppingCarts.Include(sc => sc.User).Include(sc => sc.Product).Where(sc => sc.User.Id == userId);
             return Ok(products);
         }
 
-        [HttpDelete("product/{productId}/user/{userId}")]
+        [HttpDelete("product/{productId}/user/{userId}"), Authorize]
         public IActionResult DeleteProduct(int productId, string userId)
         {
             var product = _context.ShoppingCarts
@@ -41,7 +42,7 @@ namespace eCommerceStarterCode.Controllers
             return StatusCode(204);
         }
 
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult PostShoppingCart([FromBody] ShoppingCart value)
         {
             var product = _context.ShoppingCarts

@@ -60,7 +60,7 @@ namespace eCommerceStarterCode.Controllers
                 return Ok(roundedAverage);
             }
         }
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult PostReview([FromBody] Review value)
         {
             _context.Reviews.Add(value);

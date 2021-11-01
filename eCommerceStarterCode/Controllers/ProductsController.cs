@@ -30,7 +30,7 @@ namespace eCommerceStarterCode.Controllers
         }
 
         // POST <baseurl>/api/products
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult Post([FromBody] Product product)
         {
             _context.Products.Add(product);
